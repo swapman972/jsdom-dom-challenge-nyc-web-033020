@@ -21,9 +21,29 @@ Add the following features one by one, refreshing the page to see your functiona
 
 > Note: These deliverables are written in the form of _User Stories_. They describe the features from the perspective of a user when they visit the page.
 
-1. As a user, I should see the timer increment every second once the page has loaded.
-2. As a user, I can manually increment and decrement the counter using the plus and minus buttons.
+√1. As a user, I should see the timer increment every second once the page has loaded.
+- pseudo code:
+  √set DomContentLoad to Document (top event listenner) 
+  √Select the node with id = 'counter'
+  √increment the textContent by 1 every second
+
+√2. As a user, I can manually increment and decrement the counter using the plus and minus buttons.
+- pseudo code:
+  √Select the node with id = 'minus'
+  √Select the node with id = 'plus'
+  √assign click event to the both buttons
+  √(increment), (decrement)
+
 3. As a user, I can 'like' an individual number of the counter. I should see count of the number of 'likes' associated with that number.
+- pseudo code:
+  √Select the node with id = 'heart'
+  √Select the node with class = 'likes'
+
+  create list item (li) with inner span
+  set innerHTML of li to = `${counter.textContent} has been liked <span>0<span> time
+  append to node with class 'likes'
+
+
 4. As a user, I can pause the counter, which should 
 
   * pause the counter
