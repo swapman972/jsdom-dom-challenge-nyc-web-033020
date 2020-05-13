@@ -21,23 +21,24 @@ document.addEventListener('DOMContentLoaded', (e) => {
         } else if (e.target === plus){
             increment()
         } else if (e.target === heart){
-            let li = document.createElement('li')
             let count = parseInt(counter.textContent)
-            let lastLike = likesList.lastElementChild
+            let lastLike = likesList.lastChild
             
             if (likesList.childNodes.length === 0){
+                let li = document.createElement('li')
                 li.innerHTML = `${count} has been liked <span>1</span> time`
                 likesList.appendChild(li)
-            } else {
-                if (count === lastLike.textContent.split(" ")[0]){
+
+            } else if (count === parseInt(lastLike.textContent.split(" ")[0])){
                     let spanNum = parseInt(lastLike.childNodes[1].innerText)
                     spanNum++
                     lastLike.childNodes[1].innerText = spanNum
-                } else {
-                    li.innerHTML = `${count} has been liked <span>1</span> time`
-                    likesList.appendChild(li)
-                }
+            } else {
+                let li = document.createElement('li')
+                li.innerHTML = `${count} has been liked <span>1</span> time`
+                likesList.appendChild(li)
             }
+            
             
             // let commentCount = undefined
 
